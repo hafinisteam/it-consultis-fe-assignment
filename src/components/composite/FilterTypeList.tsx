@@ -3,21 +3,21 @@ import { Tag } from '../base'
 import { PokemonFilterTyped } from '@/types/pokemon'
 
 interface FilterTypeListProps {
-  filterTypesData: PokemonFilterTyped[]
-  isLoading?: boolean
+  availablePokemonTypes: PokemonFilterTyped[]
+  isLoadingTypes?: boolean
   selectedTypes: string[]
-  total: number
-  handleSelectType: (type: string) => void
+  totalResultCount: number
+  onTypeSelect: (type: string) => void
 }
 
 export const FilterTypeList = ({
-  filterTypesData,
-  isLoading,
+  availablePokemonTypes,
+  isLoadingTypes,
   selectedTypes,
-  total,
-  handleSelectType,
+  totalResultCount,
+  onTypeSelect,
 }: FilterTypeListProps) => {
-  if (isLoading) {
+  if (isLoadingTypes) {
     return (
       <div className="flex flex-wrap gap-3">
         {Array.from({ length: 24 }).map((_, index) => (
@@ -30,7 +30,7 @@ export const FilterTypeList = ({
     )
   }
 
-  if (!filterTypesData || filterTypesData.length === 0) {
+  if (!availablePokemonTypes || availablePokemonTypes.length === 0) {
     return (
       <div className="space-y-4">
         <p className="text-red-500">Failed to load types.</p>
@@ -44,7 +44,7 @@ export const FilterTypeList = ({
       <div className="mb-4 flex items-center">
         <p className="text-lg font-semibold text-gray-900 mr-2">Total count:</p>
         <span className="text-indigo-600 text-2xl font-extrabold">
-          {total || 0}
+          {totalResultCount || '...'}
         </span>
       </div>
 
@@ -52,12 +52,12 @@ export const FilterTypeList = ({
       <div className="flex flex-wrap gap-3">
         <p className="text-gray-500 mr-2 self-center text-sm">Types:</p>
 
-        {filterTypesData.map((type) => (
+        {availablePokemonTypes.map((type) => (
           <Tag
             key={type.name}
             type={type.name}
             isActive={selectedTypes.includes(type.name)}
-            onClick={() => handleSelectType(type.name)}
+            onClick={() => onTypeSelect(type.name)}
           />
         ))}
       </div>

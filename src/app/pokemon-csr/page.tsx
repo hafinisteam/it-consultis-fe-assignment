@@ -10,13 +10,13 @@ import { fetcher } from '@/lib/fetcher'
 
 function PokemonCSRPage() {
   const {
-    totalItems,
     currentPage,
-    listData,
-    isListDataLoading,
-    onSelectType,
-    onGoBack,
-    onGoNext,
+    isPokemonLoading,
+    pokemonData,
+    totalItems,
+    onTypeSelect,
+    onNextPage,
+    onPreviousPage,
   } = useCSRFilter()
 
   return (
@@ -25,14 +25,14 @@ function PokemonCSRPage() {
         <Title>Pokemon CSR Page</Title>
         <FilterContainer
           totalResultCount={totalItems}
-          handleSelectType={onSelectType}
+          onTypeSelect={onTypeSelect}
         />
-        <PokemonList results={listData || []} isLoading={isListDataLoading} />
+        <PokemonList results={pokemonData || []} isLoading={isPokemonLoading} />
         <Pagination
           total={totalItems}
           currentPage={currentPage}
-          onGoNext={onGoNext}
-          onGoBack={onGoBack}
+          onNextPage={onNextPage}
+          onPreviousPage={onPreviousPage}
         />
       </div>
     </div>

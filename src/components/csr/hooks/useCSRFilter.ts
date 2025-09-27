@@ -13,7 +13,7 @@ export const useCSRFilter = () => {
   const { totalItems, listData, listDataError, isListDataLoading } =
     useListData()
 
-  const onSelectType = (type: string) => {
+  const onTypeSelect = (type: string) => {
     const params = new URLSearchParams(stringifiedParams)
 
     // Toggle type selection (add if not present, remove if present)
@@ -35,14 +35,14 @@ export const useCSRFilter = () => {
     router.push(`?${params.toString()}`)
   }
 
-  const onGoNext = () => {
+  const onNextPage = () => {
     const params = new URLSearchParams(stringifiedParams)
 
     params.set('page', (currentPage + 1).toString())
     router.push(`?${params.toString()}`)
   }
 
-  const onGoBack = () => {
+  const onPreviousPage = () => {
     const params = new URLSearchParams(stringifiedParams)
 
     if (currentPage === 1) return
@@ -53,12 +53,12 @@ export const useCSRFilter = () => {
 
   return {
     currentPage,
-    isListDataLoading,
-    listData,
-    listDataError,
+    isPokemonLoading: isListDataLoading,
+    pokemonData: listData,
+    pokemonError: listDataError,
     totalItems,
-    onSelectType,
-    onGoNext,
-    onGoBack,
+    onTypeSelect,
+    onNextPage,
+    onPreviousPage,
   }
 }

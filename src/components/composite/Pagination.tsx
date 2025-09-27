@@ -5,15 +5,15 @@ import React from 'react'
 interface PaginationProps {
   total: number
   currentPage: number
-  onGoNext: () => void
-  onGoBack: () => void
+  onNextPage: () => void
+  onPreviousPage: () => void
 }
 
 export const Pagination = ({
   total,
   currentPage,
-  onGoNext,
-  onGoBack,
+  onNextPage,
+  onPreviousPage,
 }: PaginationProps) => {
   const totalPages = Math.ceil(total / DEFAULT_LIMIT)
   const buttonClasses = clsx(
@@ -25,14 +25,14 @@ export const Pagination = ({
     <div className="flex items-center justify-center gap-4 py-4">
       {/* Previous button - only show if not on first page */}
       {currentPage > 1 && (
-        <button onClick={onGoBack} className={buttonClasses}>
+        <button onClick={onPreviousPage} className={buttonClasses}>
           Previous
         </button>
       )}
 
       {/* Next button - only show if not on last page */}
       {currentPage < totalPages && (
-        <button onClick={onGoNext} className={buttonClasses}>
+        <button onClick={onNextPage} className={buttonClasses}>
           Next
         </button>
       )}
