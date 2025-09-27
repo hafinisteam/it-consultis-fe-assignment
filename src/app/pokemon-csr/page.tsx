@@ -5,7 +5,8 @@ import { SWRConfig } from 'swr'
 import { Title } from '@/components/base'
 import { Pagination, PokemonList } from '@/components/composite'
 import { FilterContainer } from '@/components/csr/FilterContainer'
-import { useCSRFilter } from '@/components/csr/hooks/useCSRFilter'
+import { PageSwitcher } from '@/components/common/PageSwitcher'
+import { usePokemonPage } from '@/components/csr/hooks/usePokemonPage'
 import { fetcher } from '@/lib/fetcher'
 
 function PokemonCSRPage() {
@@ -17,7 +18,7 @@ function PokemonCSRPage() {
     onTypeSelect,
     onNextPage,
     onPreviousPage,
-  } = useCSRFilter()
+  } = usePokemonPage()
 
   return (
     <div className="min-h-screen p-8">
@@ -35,6 +36,9 @@ function PokemonCSRPage() {
           total={totalItems}
         />
       </div>
+
+      {/* CSR/SSR Page Switcher */}
+      <PageSwitcher />
     </div>
   )
 }

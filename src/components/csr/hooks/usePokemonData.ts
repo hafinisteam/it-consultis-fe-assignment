@@ -10,7 +10,7 @@ import { useSearchParams } from 'next/navigation'
 import { useMemo } from 'react'
 import useSWR from 'swr'
 
-export const useListData = () => {
+export const usePokemonData = () => {
   const searchParams = useSearchParams()
   const currentPage = getPageFromParams(searchParams)
   const typesFromParams = getTypesFromParams(searchParams)

@@ -18,7 +18,7 @@ export const Pagination = ({
   const totalPages = Math.ceil(total / DEFAULT_LIMIT)
   const buttonClasses = clsx(
     'px-4 py-2 bg-indigo-600 text-white rounded',
-    'hover:bg-indigo-500 transition-colors'
+    'hover:bg-indigo-500 transition-colors cursor-pointer'
   )
 
   return (
