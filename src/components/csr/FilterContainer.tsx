@@ -6,7 +6,7 @@ import { getTypesFromParams } from '@/lib/common'
 import { PokemonFilterTyped } from '@/types/pokemon'
 import { type ResponseList } from '@/types/response'
 
-import { FilterTypeList } from '../composite/FilterTypeList'
+import { FilterTypeList } from '../composite'
 
 interface FilterContainerProps {
   totalResultCount: number
