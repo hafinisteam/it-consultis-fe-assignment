@@ -3,7 +3,7 @@ import { PokemonList } from '@/components/composite'
 import { SSRFilterContainer } from '@/components/ssr/SSRFilterContainer'
 import { SSRPagination } from '@/components/ssr/SSRPagination'
 import { PageSwitcher } from '@/components/common/PageSwitcher'
-import { getPokemonSSRData } from '@/lib/serverDataFetching'
+import { getPokemonSSRData } from '@/components/ssr/utils/serverDataFetching'
 
 interface PokemonSSRPageProps {
   searchParams: { [key: string]: string | string[] | undefined }

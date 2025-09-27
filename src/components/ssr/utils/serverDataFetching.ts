@@ -1,7 +1,7 @@
-import { DEFAULT_PAGE, DEFAULT_LIMIT } from '@/config'
+import { DEFAULT_LIMIT, DEFAULT_PAGE } from '@/config'
 import { extractPokemonMatchedTypes } from '@/lib/common'
 import { fetcher, fetchWithMultipleTypes } from '@/lib/fetcher'
-import { PokemonItemTyped, PokemonFilterTyped } from '@/types/pokemon'
+import { PokemonFilterTyped, PokemonItemTyped } from '@/types/pokemon'
 import { ResponseList, ResponseListType } from '@/types/response'
 
 /**
