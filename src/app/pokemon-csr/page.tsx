@@ -24,15 +24,15 @@ function PokemonCSRPage() {
       <div className="container mx-auto space-y-6">
         <Title>Pokemon CSR Page</Title>
         <FilterContainer
-          totalResultCount={totalItems}
           onTypeSelect={onTypeSelect}
+          totalResultCount={totalItems}
         />
         <PokemonList results={pokemonData || []} isLoading={isPokemonLoading} />
         <Pagination
-          total={totalItems}
           currentPage={currentPage}
           onNextPage={onNextPage}
           onPreviousPage={onPreviousPage}
+          total={totalItems}
         />
       </div>
     </div>
