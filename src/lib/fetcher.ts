@@ -1,5 +1,7 @@
+import { POKEAPI_URL } from '@/config'
+
 export const fetcher = (url: string) =>
-  fetch(`${process.env.NEXT_PUBLIC_POKEAPI_URL}${url}`).then((r) => r.json())
+  fetch(`${POKEAPI_URL}${url}`).then((r) => r.json())
 
 export const fetchWithMultipleTypes = <T>(url: string, types: string[]) =>
   Promise.all(

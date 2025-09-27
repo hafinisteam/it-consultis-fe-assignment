@@ -2,6 +2,7 @@ import { getPageFromParams, getTypesFromParams } from '@/lib/common'
 import { urlBuilder } from '@/lib/url'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { usePokemonData } from './usePokemonData'
+import { AppRoutes } from '@/config'
 
 export const usePokemonPage = () => {
   const router = useRouter()
@@ -17,7 +18,7 @@ export const usePokemonPage = () => {
     const newUrl = urlBuilder.buildTypeToggleUrl(
       {
         currentParams: stringifiedParams,
-        basePath: '/pokemon-csr',
+        basePath: AppRoutes.POKEMON_CSR,
       },
       type,
       typesFromParams
@@ -30,7 +31,7 @@ export const usePokemonPage = () => {
     const newUrl = urlBuilder.buildNextPageUrl(
       {
         currentParams: stringifiedParams,
-        basePath: '/pokemon-csr',
+        basePath: AppRoutes.POKEMON_CSR,
       },
       currentPage
     )
@@ -42,7 +43,7 @@ export const usePokemonPage = () => {
     const newUrl = urlBuilder.buildPreviousPageUrl(
       {
         currentParams: stringifiedParams,
-        basePath: '/pokemon-csr',
+        basePath: AppRoutes.POKEMON_CSR,
       },
       currentPage
     )

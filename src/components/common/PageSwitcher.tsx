@@ -1,13 +1,14 @@
 'use client'
 
+import { AppRoutes } from '@/config'
 import clsx from 'clsx'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 export const PageSwitcher = () => {
   const pathname = usePathname()
-  const isSSR = pathname.includes('/pokemon-ssr')
-  const targetPath = isSSR ? '/pokemon-csr' : '/pokemon-ssr'
+  const isSSR = pathname.includes(AppRoutes.POKEMON_SSR)
+  const targetPath = isSSR ? AppRoutes.POKEMON_CSR : AppRoutes.POKEMON_SSR
 
   return (
     <div className="fixed bottom-4 right-4 z-50">

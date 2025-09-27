@@ -4,6 +4,7 @@ import { SSRFilterContainer } from '@/components/ssr/SSRFilterContainer'
 import { SSRPagination } from '@/components/ssr/SSRPagination'
 import { PageSwitcher } from '@/components/common/PageSwitcher'
 import { getPokemonSSRData } from '@/components/ssr/utils/serverDataFetching'
+import { AppRoutes } from '@/config'
 
 interface PokemonSSRPageProps {
   searchParams: { [key: string]: string | string[] | undefined }
@@ -25,15 +26,12 @@ export default async function PokemonSSRPage({
           <SSRFilterContainer
             availablePokemonTypes={availableTypes}
             totalResultCount={totalItems}
-            basePath="/pokemon-ssr"
+            basePath={AppRoutes.POKEMON_SSR}
           />
 
-          <PokemonList
-            results={pokemonData}
-            // No isLoading needed for SSR
-          />
+          <PokemonList results={pokemonData} />
 
-          <SSRPagination total={totalItems} basePath="/pokemon-ssr" />
+          <SSRPagination total={totalItems} basePath={AppRoutes.POKEMON_SSR} />
         </div>
       </div>
 
