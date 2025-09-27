@@ -8,8 +8,9 @@ import { FilterContainer } from '@/components/csr/FilterContainer'
 import { PageSwitcher } from '@/components/common/PageSwitcher'
 import { usePokemonPage } from '@/components/csr/hooks/usePokemonPage'
 import { fetcher } from '@/lib/fetcher'
+import { Suspense } from 'react'
 
-function PokemonCSRPage() {
+function PokemonPage() {
   const {
     currentPage,
     isPokemonLoading,
@@ -43,14 +44,16 @@ function PokemonCSRPage() {
   )
 }
 
-export default function AppCSR() {
+export default function Page() {
   return (
-    <SWRConfig
-      value={{
-        fetcher: fetcher,
-      }}
-    >
-      <PokemonCSRPage />
-    </SWRConfig>
+    <Suspense fallback={<>...</>}>
+      <SWRConfig
+        value={{
+          fetcher: fetcher,
+        }}
+      >
+        <PokemonPage />
+      </SWRConfig>
+    </Suspense>
   )
 }
