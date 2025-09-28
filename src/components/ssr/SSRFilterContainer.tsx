@@ -34,11 +34,9 @@ export const SSRFilterContainer = ({
     router.push(newUrl)
   }
 
-  // Reuse existing FilterTypeList component
   return (
     <FilterTypeList
       availablePokemonTypes={availablePokemonTypes}
-      isLoadingTypes={false} // No loading state needed for SSR
       selectedTypes={selectedTypes}
       totalResultCount={totalResultCount}
       onTypeSelect={handleTypeSelect}

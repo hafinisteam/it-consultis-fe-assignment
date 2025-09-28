@@ -6,7 +6,6 @@ import { ResponseList, ResponseListType } from '@/types/response'
 
 /**
  * Server-side data fetching for Pokemon SSR page
- * Replicates the logic from useListData hook
  */
 
 async function fetchPokemonTypes(): Promise<PokemonFilterTyped[]> {
@@ -64,7 +63,7 @@ export async function getPokemonSSRData(searchParams: {
     // 2. Fetch available Pokemon types (always needed for filter)
     const availableTypes = await fetchPokemonTypes()
 
-    // 3. Conditional Pokemon data fetching (same as useListData logic)
+    // 3. Conditional Pokemon data fetching
     let pokemonData: PokemonItemTyped[] = []
     let totalItems = 0
 

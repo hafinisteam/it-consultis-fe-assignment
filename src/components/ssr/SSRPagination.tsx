@@ -41,7 +41,6 @@ export const SSRPagination = ({ total, basePath }: SSRPaginationProps) => {
     router.push(newUrl)
   }
 
-  // Reuse existing Pagination component with URL manipulation functions
   return (
     <Pagination
       total={total}

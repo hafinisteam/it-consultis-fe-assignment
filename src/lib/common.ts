@@ -21,6 +21,7 @@ export function extractPokemonMatchedTypes(
 ): PokemonItemTyped[] {
   // If only one type, return the list directly
   if (data.length < 2) return data[0].pokemon.map((p) => p.pokemon)
+
   // If multiple types, we need to pick pokemon appears in at least each list 2 times
   const pokemonCountMap: Record<
     string,
